@@ -15,8 +15,8 @@ module Middleman
         # This resource's parent resource
         # @return [Middleman::Sitemap::Resource, nil]
         def parent
-          root = path.sub(/^#{::Regexp.escape(traversal_root)}/, '')
-          parts = root.split('/')
+          # Removed the code that removes the locale from the parent path.
+          parts = path.split('/')
 
           tail = parts.pop
           is_index = (tail == @app.config[:index_file])
